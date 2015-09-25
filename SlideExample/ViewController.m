@@ -79,41 +79,31 @@
         }
 
         dispatch_async( dispatch_get_main_queue(), ^{
-            [_tableView reloadData];
+            [_collectionView reloadData];
         });
     });
 }
 
+#pragma mark - UICollectionView Datasource
 
-#pragma mark - Table View Data Source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
 {
     return [self.giftCardArray count];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = [UIColor clearColor];
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView
+{
+    return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"cellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
 
     GiftCard *card = [self.giftCardArray objectAtIndex:indexPath.row];
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0, 237.0)];
-    imgView.opaque = YES;
+    imgView.backgroundColor = [UIColor clearColor];
     imgView.image = card.cardImage;
     
     [cell.contentView addSubview:imgView];
@@ -125,23 +115,10 @@
     cell.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     cell.layer.shadowRadius = 5.0f;
     cell.layer.shadowOpacity = 1.0f;
-    
-    [cell.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.bounds].CGPath];
-    cell.clipsToBounds = NO;
-    cell.contentView.clipsToBounds = NO;
+    cell.layer.masksToBounds = NO;
+    cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
     
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 120.0;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
 }
 
 - (void)didReceiveMemoryWarning {

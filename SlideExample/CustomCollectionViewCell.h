@@ -1,5 +1,5 @@
 //
-//  CustomTableViewCell.h
+//  CustomCollectionViewCell.h
 //  SlideExample
 //
 //  Created by Sahil Ishar on 9/25/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomTableViewCell : UITableViewCell
+@interface CustomCollectionViewCell : UICollectionViewCell
 
 @end
