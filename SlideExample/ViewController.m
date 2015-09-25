@@ -7,16 +7,141 @@
 //
 
 #import "ViewController.h"
+#import "GiftCard.h"
+#import <QuartzCore/CALayer.h>
+#import <QuartzCore/CAGradientLayer.h>
+#import <QuartzCore/CAShapeLayer.h>
 
 @interface ViewController ()
-
+@property (nonatomic, strong) NSMutableArray *giftCardArray;
 @end
 
 @implementation ViewController
 
++ (void)roundedImage:(UIImage *)image
+          completion:(void (^)(UIImage *image))completion {
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+        [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/2] addClip];
+        [image drawInRect:rect];
+        UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        // Lets forget about that we were drawing
+        UIGraphicsEndImageContext();
+        dispatch_async( dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(roundedImage);
+            }
+        });
+    });
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    //Retrieve User's gift cards in bg thread
+    //then update table view
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+
+        GiftCard *card1 = [[GiftCard alloc] initWithName:@"Burger King" number:@"1234" currentBalance:@"0.00" cardImage:[UIImage imageNamed:@"bk.png"]];
+        GiftCard *card2 = [[GiftCard alloc] initWithName:@"Bloomindale's" number:@"1574" currentBalance:@"10.00" cardImage:[UIImage imageNamed:@"bloomies.png"]];
+        GiftCard *card3 = [[GiftCard alloc] initWithName:@"Home Depot" number:@"1798" currentBalance:@"25.00" cardImage:[UIImage imageNamed:@"homedepot.png"]];
+        GiftCard *card4 = [[GiftCard alloc] initWithName:@"Macy's" number:@"2563" currentBalance:@"0.50" cardImage:[UIImage imageNamed:@"macys.png"]];
+        GiftCard *card5 = [[GiftCard alloc] initWithName:@"Nike" number:@"9084" currentBalance:@"1.00" cardImage:[UIImage imageNamed:@"nike.png"]];
+        GiftCard *card6 = [[GiftCard alloc] initWithName:@"Old Navy" number:@"3324" currentBalance:@"100.00" cardImage:[UIImage imageNamed:@"oldnavy.png"]];
+        GiftCard *card7 = [[GiftCard alloc] initWithName:@"Starbucks" number:@"1676" currentBalance:@"7.50" cardImage:[UIImage imageNamed:@"starbucks.png"]];
+        GiftCard *card8 = [[GiftCard alloc] initWithName:@"Subway" number:@"1738" currentBalance:@"0.00" cardImage:[UIImage imageNamed:@"subway.png"]];
+        GiftCard *card9 = [[GiftCard alloc] initWithName:@"The Container Store" number:@"1816" currentBalance:@"25.00" cardImage:[UIImage imageNamed:@"tcs.png"]];
+        GiftCard *card10 = [[GiftCard alloc] initWithName:@"Trader Joe's" number:@"9113" currentBalance:@"50.00" cardImage:[UIImage imageNamed:@"tj.png"]];
+        GiftCard *card11 = [[GiftCard alloc] initWithName:@"Walmart" number:@"5534" currentBalance:@"50.00" cardImage:[UIImage imageNamed:@"walmart.png"]];
+        GiftCard *card12 = [[GiftCard alloc] initWithName:@"Whole Foods" number:@"6798" currentBalance:@"8.00" cardImage:[UIImage imageNamed:@"wholefoods.png"]];
+        
+        self.giftCardArray = [[NSMutableArray alloc] initWithObjects:card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, nil];
+        
+        GiftCard *sharedObj = [GiftCard sharedInstance];
+        [sharedObj.cardArray addObjectsFromArray:self.giftCardArray];
+        
+        //Adjust images
+        for (GiftCard *gc in self.giftCardArray) {
+            
+            UIGraphicsBeginImageContextWithOptions(gc.cardImage.size, NO, gc.cardImage.scale);
+            CGRect rect = CGRectMake(0, 0, gc.cardImage.size.width, gc.cardImage.size.height);
+            [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:gc.cardImage.size.width/32] addClip];
+            [gc.cardImage drawInRect:rect];
+            UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            gc.cardImage = roundedImage;
+        }
+
+        dispatch_async( dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+        });
+    });
+}
+
+
+#pragma mark - Table View Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.giftCardArray count];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = [UIColor clearColor];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier = @"cellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+
+    GiftCard *card = [self.giftCardArray objectAtIndex:indexPath.row];
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0, 237.0)];
+    imgView.opaque = YES;
+    imgView.image = card.cardImage;
+    
+    [cell.contentView addSubview:imgView];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.layer.shouldRasterize = YES;
+    
+    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
+    cell.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    cell.layer.shadowRadius = 5.0f;
+    cell.layer.shadowOpacity = 1.0f;
+    
+    [cell.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.bounds].CGPath];
+    cell.clipsToBounds = NO;
+    cell.contentView.clipsToBounds = NO;
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -15,6 +15,22 @@
 		FA7476061BB4986E00C0CF18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7476041BB4986E00C0CF18 /* LaunchScreen.storyboard */; };
 		FA7476111BB4986E00C0CF18 /* SlideExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476101BB4986E00C0CF18 /* SlideExampleTests.m */; };
 		FA74761C1BB4986E00C0CF18 /* SlideExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74761B1BB4986E00C0CF18 /* SlideExampleUITests.m */; };
+		FA7476361BB4BA1800C0CF18 /* bk.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762A1BB4BA1800C0CF18 /* bk.png */; settings = {ASSET_TAGS = (); }; };
+		FA7476371BB4BA1800C0CF18 /* bloomies.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762B1BB4BA1800C0CF18 /* bloomies.png */; settings = {ASSET_TAGS = (); }; };
+		FA7476381BB4BA1800C0CF18 /* homedepot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762C1BB4BA1800C0CF18 /* homedepot.png */; settings = {ASSET_TAGS = (); }; };
+		FA7476391BB4BA1800C0CF18 /* macys.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762D1BB4BA1800C0CF18 /* macys.png */; settings = {ASSET_TAGS = (); }; };
+		FA74763A1BB4BA1800C0CF18 /* nike.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762E1BB4BA1800C0CF18 /* nike.png */; settings = {ASSET_TAGS = (); }; };
+		FA74763B1BB4BA1800C0CF18 /* oldnavy.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762F1BB4BA1800C0CF18 /* oldnavy.png */; settings = {ASSET_TAGS = (); }; };
+		FA74763C1BB4BA1800C0CF18 /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476301BB4BA1800C0CF18 /* starbucks.png */; settings = {ASSET_TAGS = (); }; };
+		FA74763D1BB4BA1800C0CF18 /* subway.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476311BB4BA1800C0CF18 /* subway.png */; settings = {ASSET_TAGS = (); }; };
+		FA74763E1BB4BA1800C0CF18 /* tcs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476321BB4BA1800C0CF18 /* tcs.png */; settings = {ASSET_TAGS = (); }; };
+		FA74763F1BB4BA1800C0CF18 /* tj.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476331BB4BA1800C0CF18 /* tj.png */; settings = {ASSET_TAGS = (); }; };
+		FA7476401BB4BA1800C0CF18 /* walmart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476341BB4BA1800C0CF18 /* walmart.png */; settings = {ASSET_TAGS = (); }; };
+		FA7476411BB4BA1800C0CF18 /* wholefoods.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476351BB4BA1800C0CF18 /* wholefoods.png */; settings = {ASSET_TAGS = (); }; };
+		FA74764B1BB4FE0300C0CF18 /* GiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74764A1BB4FE0300C0CF18 /* GiftCard.m */; settings = {ASSET_TAGS = (); }; };
+		FA7476501BB509C100C0CF18 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74764F1BB509C100C0CF18 /* CustomTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		FA7476531BB509EF00C0CF18 /* CustomCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476521BB509EF00C0CF18 /* CustomCellContentView.m */; settings = {ASSET_TAGS = (); }; };
+		FA7476561BB52E2700C0CF18 /* CustomLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476551BB52E2700C0CF18 /* CustomLayout.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +67,27 @@
 		FA7476171BB4986E00C0CF18 /* SlideExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA74761B1BB4986E00C0CF18 /* SlideExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideExampleUITests.m; sourceTree = "<group>"; };
 		FA74761D1BB4986E00C0CF18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA74762A1BB4BA1800C0CF18 /* bk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bk.png; sourceTree = "<group>"; };
+		FA74762B1BB4BA1800C0CF18 /* bloomies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloomies.png; sourceTree = "<group>"; };
+		FA74762C1BB4BA1800C0CF18 /* homedepot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homedepot.png; sourceTree = "<group>"; };
+		FA74762D1BB4BA1800C0CF18 /* macys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macys.png; sourceTree = "<group>"; };
+		FA74762E1BB4BA1800C0CF18 /* nike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nike.png; sourceTree = "<group>"; };
+		FA74762F1BB4BA1800C0CF18 /* oldnavy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldnavy.png; sourceTree = "<group>"; };
+		FA7476301BB4BA1800C0CF18 /* starbucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starbucks.png; sourceTree = "<group>"; };
+		FA7476311BB4BA1800C0CF18 /* subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subway.png; sourceTree = "<group>"; };
+		FA7476321BB4BA1800C0CF18 /* tcs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tcs.png; sourceTree = "<group>"; };
+		FA7476331BB4BA1800C0CF18 /* tj.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tj.png; sourceTree = "<group>"; };
+		FA7476341BB4BA1800C0CF18 /* walmart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walmart.png; sourceTree = "<group>"; };
+		FA7476351BB4BA1800C0CF18 /* wholefoods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wholefoods.png; sourceTree = "<group>"; };
+		FA7476491BB4FE0300C0CF18 /* GiftCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftCard.h; sourceTree = "<group>"; };
+		FA74764A1BB4FE0300C0CF18 /* GiftCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftCard.m; sourceTree = "<group>"; };
+		FA74764C1BB4FF7400C0CF18 /* SlideExample-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SlideExample-prefix.pch"; sourceTree = "<group>"; };
+		FA74764E1BB509C100C0CF18 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		FA74764F1BB509C100C0CF18 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		FA7476511BB509EF00C0CF18 /* CustomCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellContentView.h; sourceTree = "<group>"; };
+		FA7476521BB509EF00C0CF18 /* CustomCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellContentView.m; sourceTree = "<group>"; };
+		FA7476541BB52E2700C0CF18 /* CustomLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayout.h; sourceTree = "<group>"; };
+		FA7476551BB52E2700C0CF18 /* CustomLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +140,18 @@
 			children = (
 				FA7475F91BB4986E00C0CF18 /* AppDelegate.h */,
 				FA7475FA1BB4986E00C0CF18 /* AppDelegate.m */,
+				FA7475FF1BB4986E00C0CF18 /* Main.storyboard */,
+				FA7476481BB4FDD900C0CF18 /* Models */,
 				FA7475FC1BB4986E00C0CF18 /* ViewController.h */,
 				FA7475FD1BB4986E00C0CF18 /* ViewController.m */,
-				FA7475FF1BB4986E00C0CF18 /* Main.storyboard */,
+				FA7476541BB52E2700C0CF18 /* CustomLayout.h */,
+				FA7476551BB52E2700C0CF18 /* CustomLayout.m */,
+				FA74764D1BB5091500C0CF18 /* Custom Objects */,
+				FA7476291BB4B9F400C0CF18 /* Resources */,
 				FA7476021BB4986E00C0CF18 /* Assets.xcassets */,
 				FA7476041BB4986E00C0CF18 /* LaunchScreen.storyboard */,
 				FA7476071BB4986E00C0CF18 /* Info.plist */,
+				FA74764C1BB4FF7400C0CF18 /* SlideExample-prefix.pch */,
 				FA7475F61BB4986E00C0CF18 /* Supporting Files */,
 			);
 			path = SlideExample;
@@ -138,6 +181,45 @@
 				FA74761D1BB4986E00C0CF18 /* Info.plist */,
 			);
 			path = SlideExampleUITests;
+			sourceTree = "<group>";
+		};
+		FA7476291BB4B9F400C0CF18 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA74762A1BB4BA1800C0CF18 /* bk.png */,
+				FA74762B1BB4BA1800C0CF18 /* bloomies.png */,
+				FA74762C1BB4BA1800C0CF18 /* homedepot.png */,
+				FA74762D1BB4BA1800C0CF18 /* macys.png */,
+				FA74762E1BB4BA1800C0CF18 /* nike.png */,
+				FA74762F1BB4BA1800C0CF18 /* oldnavy.png */,
+				FA7476301BB4BA1800C0CF18 /* starbucks.png */,
+				FA7476311BB4BA1800C0CF18 /* subway.png */,
+				FA7476321BB4BA1800C0CF18 /* tcs.png */,
+				FA7476331BB4BA1800C0CF18 /* tj.png */,
+				FA7476341BB4BA1800C0CF18 /* walmart.png */,
+				FA7476351BB4BA1800C0CF18 /* wholefoods.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FA7476481BB4FDD900C0CF18 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA7476491BB4FE0300C0CF18 /* GiftCard.h */,
+				FA74764A1BB4FE0300C0CF18 /* GiftCard.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FA74764D1BB5091500C0CF18 /* Custom Objects */ = {
+			isa = PBXGroup;
+			children = (
+				FA74764E1BB509C100C0CF18 /* CustomTableViewCell.h */,
+				FA74764F1BB509C100C0CF18 /* CustomTableViewCell.m */,
+				FA7476511BB509EF00C0CF18 /* CustomCellContentView.h */,
+				FA7476521BB509EF00C0CF18 /* CustomCellContentView.m */,
+			);
+			name = "Custom Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,9 +325,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA74763F1BB4BA1800C0CF18 /* tj.png in Resources */,
+				FA74763E1BB4BA1800C0CF18 /* tcs.png in Resources */,
+				FA7476391BB4BA1800C0CF18 /* macys.png in Resources */,
 				FA7476061BB4986E00C0CF18 /* LaunchScreen.storyboard in Resources */,
+				FA74763A1BB4BA1800C0CF18 /* nike.png in Resources */,
+				FA7476381BB4BA1800C0CF18 /* homedepot.png in Resources */,
+				FA7476401BB4BA1800C0CF18 /* walmart.png in Resources */,
 				FA7476031BB4986E00C0CF18 /* Assets.xcassets in Resources */,
+				FA7476361BB4BA1800C0CF18 /* bk.png in Resources */,
+				FA74763D1BB4BA1800C0CF18 /* subway.png in Resources */,
+				FA74763C1BB4BA1800C0CF18 /* starbucks.png in Resources */,
 				FA7476011BB4986E00C0CF18 /* Main.storyboard in Resources */,
+				FA7476371BB4BA1800C0CF18 /* bloomies.png in Resources */,
+				FA7476411BB4BA1800C0CF18 /* wholefoods.png in Resources */,
+				FA74763B1BB4BA1800C0CF18 /* oldnavy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +365,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7475FE1BB4986E00C0CF18 /* ViewController.m in Sources */,
+				FA7476531BB509EF00C0CF18 /* CustomCellContentView.m in Sources */,
+				FA74764B1BB4FE0300C0CF18 /* GiftCard.m in Sources */,
 				FA7475FB1BB4986E00C0CF18 /* AppDelegate.m in Sources */,
+				FA7476561BB52E2700C0CF18 /* CustomLayout.m in Sources */,
+				FA7476501BB509C100C0CF18 /* CustomTableViewCell.m in Sources */,
 				FA7475F81BB4986E00C0CF18 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +511,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SlideExample/SlideExample-prefix.pch";
 				INFOPLIST_FILE = SlideExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahil.SlideExample;
@@ -424,6 +524,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SlideExample/SlideExample-prefix.pch";
 				INFOPLIST_FILE = SlideExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahil.SlideExample;
