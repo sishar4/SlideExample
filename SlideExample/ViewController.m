@@ -38,11 +38,17 @@
     });
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [_collectionView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [_collectionView setClearsContextBeforeDrawing:NO];
+//    [_collectionView setClearsContextBeforeDrawing:NO];
     
     //Retrieve User's gift cards in bg thread
     //then update table view
