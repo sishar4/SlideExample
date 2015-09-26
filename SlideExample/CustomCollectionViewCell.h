@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomCollectionViewCell : UICollectionViewCell
-{
-    UIImageView *imgView;
-}
 
 @property (nonatomic, retain) UIImageView *imgView;
 
