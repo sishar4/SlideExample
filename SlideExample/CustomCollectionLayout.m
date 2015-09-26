@@ -69,7 +69,7 @@
         
         yPosition -= STACK_OVERLAP * attributes.indexPath.row;
         attributes.zIndex = numberOfItems + attributes.indexPath.row; //All cells tucked underneath the one above
-        
+
         attributes.center = CGPointMake(xPosition, yPosition);
     }
     
@@ -83,9 +83,5 @@
     return attributes;
 }
 
-- (UIEdgeInsets)collectionView:
-(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(20, 0, 0, 0);
-}
 
 @end

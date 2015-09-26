@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GiftCard.h"
+#import "CustomCollectionViewCell.h"
 #import <QuartzCore/CALayer.h>
 #import <QuartzCore/CAGradientLayer.h>
 #import <QuartzCore/CAShapeLayer.h>
@@ -18,25 +19,6 @@
 
 @implementation ViewController
 
-+ (void)roundedImage:(UIImage *)image
-          completion:(void (^)(UIImage *image))completion {
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
-        CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
-        [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/2] addClip];
-        [image drawInRect:rect];
-        UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        // Lets forget about that we were drawing
-        UIGraphicsEndImageContext();
-        dispatch_async( dispatch_get_main_queue(), ^{
-            if (completion) {
-                completion(roundedImage);
-            }
-        });
-    });
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -48,12 +30,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-//    [_collectionView setClearsContextBeforeDrawing:NO];
+    [_collectionView setClearsContextBeforeDrawing:NO];
+    [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"customCell"];
+    
     
     //Retrieve User's gift cards in bg thread
     //then update table view
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
 
         GiftCard *card1 = [[GiftCard alloc] initWithName:@"Burger King" number:@"1234" currentBalance:@"0.00" cardImage:[UIImage imageNamed:@"bk.png"]];
         GiftCard *card2 = [[GiftCard alloc] initWithName:@"Bloomindale's" number:@"1574" currentBalance:@"10.00" cardImage:[UIImage imageNamed:@"bloomies.png"]];
@@ -73,6 +56,7 @@
         GiftCard *sharedObj = [GiftCard sharedInstance];
         [sharedObj.cardArray addObjectsFromArray:self.giftCardArray];
         
+        
         //Adjust images
         for (GiftCard *gc in self.giftCardArray) {
 
@@ -86,7 +70,6 @@
         }
 
         dispatch_async( dispatch_get_main_queue(), ^{
-
             [_collectionView reloadData];
         });
     });
@@ -106,28 +89,47 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
-
+    CustomCollectionViewCell *cell = (CustomCollectionViewCell *)[cv dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+    
+    
+//    static BOOL nibMyCellloaded = NO;
+//    
+//    if(!nibMyCellloaded)
+//    {
+//        UINib *nib = [UINib nibWithNibName:@"CustomCollectionCell" bundle: nil];
+//        [cv registerNib:nib forCellWithReuseIdentifier:@"customCell"];
+//        nibMyCellloaded = YES;
+//    }
+//    CustomCollectionViewCell *cell = (CustomCollectionViewCell*)[cv dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+    
     GiftCard *card = [self.giftCardArray objectAtIndex:indexPath.row];
     
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0, 237.0)];
-    imgView.opaque = YES;
-    imgView.image = card.cardImage;
-    
-    [cell.contentView addSubview:imgView];
+//    cell.imgView.opaque = YES;
+    cell.imgView.image = card.cardImage;
+
     cell.contentView.opaque = YES;
-    cell.backgroundColor = [UIColor clearColor];
-    cell.layer.shouldRasterize = YES;
-    cell.layer.opaque = YES;
+    cell.contentView.layer.shouldRasterize = YES;
     
+    cell.layer.opaque = YES;
+    cell.layer.shouldRasterize = YES;
+    
+    //Add light drop shadow on cell
     cell.layer.shadowColor = [[UIColor blackColor] CGColor];
     cell.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     cell.layer.shadowRadius = 5.0f;
     cell.layer.shadowOpacity = 1.0f;
     cell.layer.masksToBounds = NO;
     cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
+
+    cell.opaque = YES;
     
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
+    
+//    UICollectionViewCell *cell =[collectionView cellForItemAtIndexPath:indexPath];
+    NSLog(@"INDEX ==> %ld", (long)indexPath.row);
 }
 
 - (UIEdgeInsets)collectionView:
