@@ -16,8 +16,10 @@
     if (self) {
         
         [self.contentView setOpaque:YES];
-        _imgView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
+        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0, 237.0)];
         [_imgView setOpaque:YES];
+        [_imgView setClipsToBounds:NO];
+        
         [self.contentView addSubview:_imgView];
     }
     return self;

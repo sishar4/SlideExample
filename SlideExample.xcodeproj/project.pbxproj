@@ -32,7 +32,6 @@
 		FA803A311BB64CED00B3BB86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA803A301BB64CED00B3BB86 /* UIKit.framework */; };
 		FA803A331BB64CF400B3BB86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA803A321BB64CF400B3BB86 /* Foundation.framework */; };
 		FACDC3B81BB723DF00AD3ACF /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3B71BB723DF00AD3ACF /* CustomCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		FACDC3C11BB7335100AD3ACF /* CustomCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C01BB7335100AD3ACF /* CustomCollectionCell.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +89,6 @@
 		FA803A321BB64CF400B3BB86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FACDC3B61BB723DF00AD3ACF /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		FACDC3B71BB723DF00AD3ACF /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
-		FACDC3C01BB7335100AD3ACF /* CustomCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +229,6 @@
 		FACDC3B91BB726EB00AD3ACF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FACDC3C01BB7335100AD3ACF /* CustomCollectionCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -339,7 +336,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACDC3C11BB7335100AD3ACF /* CustomCollectionCell.xib in Resources */,
 				FA74763F1BB4BA1800C0CF18 /* tj.png in Resources */,
 				FA74763E1BB4BA1800C0CF18 /* tcs.png in Resources */,
 				FA7476391BB4BA1800C0CF18 /* macys.png in Resources */,

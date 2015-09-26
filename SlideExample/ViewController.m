@@ -90,7 +90,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomCollectionViewCell *cell = (CustomCollectionViewCell *)[cv dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
-    
+    [cell setClearsContextBeforeDrawing:NO];
     
 //    static BOOL nibMyCellloaded = NO;
 //    

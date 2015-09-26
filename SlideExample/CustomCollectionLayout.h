@@ -10,7 +10,6 @@
 
 @interface CustomCollectionLayout : UICollectionViewFlowLayout
 
-#define STACK_OVERLAP 117
-#define ITEM_SIZE CGSizeMake(375,237)
+#define ITEM_SIZE CGSizeMake(375,120)
 
 @end

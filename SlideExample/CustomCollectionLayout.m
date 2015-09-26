@@ -39,7 +39,7 @@
 
 -(CGSize)collectionViewContentSize
 {
-    NSInteger ySize = [self.collectionView numberOfItemsInSection:0] * self.itemSize.height;
+    NSInteger ySize = [self.collectionView numberOfItemsInSection:0] * (self.itemSize.height + 20.0);
     
     CGSize contentSize = CGSizeMake(self.collectionView.bounds.size.width, ySize);
     
@@ -66,9 +66,8 @@
     for (UICollectionViewLayoutAttributes *attributes in attributesArray) {
         CGFloat xPosition = attributes.center.x;
         CGFloat yPosition = attributes.center.y;
-        
-        yPosition -= STACK_OVERLAP * attributes.indexPath.row;
-        attributes.zIndex = numberOfItems + attributes.indexPath.row; //All cells tucked underneath the one above
+
+        attributes.zIndex = numberOfItems + attributes.indexPath.row; //All cells appear tucked underneath the one above
 
         attributes.center = CGPointMake(xPosition, yPosition);
     }
