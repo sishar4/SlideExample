@@ -83,4 +83,9 @@
     return attributes;
 }
 
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(20, 0, 0, 0);
+}
+
 @end

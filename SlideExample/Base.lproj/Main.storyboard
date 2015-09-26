@@ -32,10 +32,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0KF-Fc-7AN">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0KF-Fc-7AN">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewLayout key="collectionViewLayout" id="YbA-4y-8vl" customClass="CustomCollectionLayout"/>
+                                <collectionViewLayout key="collectionViewLayout" id="nib-lZ-MTa" customClass="CustomCollectionLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellIdentifier" id="rnS-ZL-IN3">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -61,12 +61,14 @@
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" constant="8" id="YWb-VK-Qty"/>
                             <constraint firstAttribute="trailing" secondItem="0KF-Fc-7AN" secondAttribute="trailing" id="c73-Sb-w9Q"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" id="l6r-au-jx2"/>
+                            <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" id="mIZ-rC-6bp"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="leading" secondItem="Kr9-J2-rXA" secondAttribute="leading" id="r2s-wB-5r8"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" id="xfF-Rh-0uy"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="0Xj-87-qWV"/>
+                                <exclude reference="LJW-yf-3YP"/>
                                 <exclude reference="YWb-VK-Qty"/>
                                 <exclude reference="l6r-au-jx2"/>
                                 <exclude reference="xfF-Rh-0uy"/>

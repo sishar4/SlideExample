@@ -42,6 +42,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [_collectionView setClearsContextBeforeDrawing:NO];
     
     //Retrieve User's gift cards in bg thread
     //then update table view
@@ -68,7 +69,7 @@
         
         //Adjust images
         for (GiftCard *gc in self.giftCardArray) {
-            
+
             UIGraphicsBeginImageContextWithOptions(gc.cardImage.size, NO, gc.cardImage.scale);
             CGRect rect = CGRectMake(0, 0, gc.cardImage.size.width, gc.cardImage.size.height);
             [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:gc.cardImage.size.width/32] addClip];
@@ -79,6 +80,7 @@
         }
 
         dispatch_async( dispatch_get_main_queue(), ^{
+
             [_collectionView reloadData];
         });
     });
@@ -103,13 +105,14 @@
     GiftCard *card = [self.giftCardArray objectAtIndex:indexPath.row];
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0, 237.0)];
-    imgView.backgroundColor = [UIColor clearColor];
+    imgView.opaque = YES;
     imgView.image = card.cardImage;
     
     [cell.contentView addSubview:imgView];
-    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.contentView.opaque = YES;
     cell.backgroundColor = [UIColor clearColor];
     cell.layer.shouldRasterize = YES;
+    cell.layer.opaque = YES;
     
     cell.layer.shadowColor = [[UIColor blackColor] CGColor];
     cell.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
@@ -119,6 +122,11 @@
     cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
     
     return cell;
+}
+
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(20, 0, 0, 0);
 }
 
 - (void)didReceiveMemoryWarning {

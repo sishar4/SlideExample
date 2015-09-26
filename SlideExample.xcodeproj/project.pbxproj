@@ -28,9 +28,7 @@
 		FA7476401BB4BA1800C0CF18 /* walmart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476341BB4BA1800C0CF18 /* walmart.png */; settings = {ASSET_TAGS = (); }; };
 		FA7476411BB4BA1800C0CF18 /* wholefoods.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476351BB4BA1800C0CF18 /* wholefoods.png */; settings = {ASSET_TAGS = (); }; };
 		FA74764B1BB4FE0300C0CF18 /* GiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74764A1BB4FE0300C0CF18 /* GiftCard.m */; settings = {ASSET_TAGS = (); }; };
-		FA7476531BB509EF00C0CF18 /* CustomCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476521BB509EF00C0CF18 /* CustomCellContentView.m */; settings = {ASSET_TAGS = (); }; };
 		FA7476591BB5EB1C00C0CF18 /* CustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476581BB5EB1C00C0CF18 /* CustomCollectionLayout.m */; settings = {ASSET_TAGS = (); }; };
-		FA74765C1BB5EC0800C0CF18 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74765B1BB5EC0800C0CF18 /* CustomCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,12 +80,8 @@
 		FA7476491BB4FE0300C0CF18 /* GiftCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftCard.h; sourceTree = "<group>"; };
 		FA74764A1BB4FE0300C0CF18 /* GiftCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftCard.m; sourceTree = "<group>"; };
 		FA74764C1BB4FF7400C0CF18 /* SlideExample-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SlideExample-prefix.pch"; sourceTree = "<group>"; };
-		FA7476511BB509EF00C0CF18 /* CustomCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellContentView.h; sourceTree = "<group>"; };
-		FA7476521BB509EF00C0CF18 /* CustomCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellContentView.m; sourceTree = "<group>"; };
 		FA7476571BB5EB1C00C0CF18 /* CustomCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionLayout.h; sourceTree = "<group>"; };
 		FA7476581BB5EB1C00C0CF18 /* CustomCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionLayout.m; sourceTree = "<group>"; };
-		FA74765A1BB5EC0800C0CF18 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
-		FA74765B1BB5EC0800C0CF18 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,10 +208,6 @@
 			children = (
 				FA7476571BB5EB1C00C0CF18 /* CustomCollectionLayout.h */,
 				FA7476581BB5EB1C00C0CF18 /* CustomCollectionLayout.m */,
-				FA74765A1BB5EC0800C0CF18 /* CustomCollectionViewCell.h */,
-				FA74765B1BB5EC0800C0CF18 /* CustomCollectionViewCell.m */,
-				FA7476511BB509EF00C0CF18 /* CustomCellContentView.h */,
-				FA7476521BB509EF00C0CF18 /* CustomCellContentView.m */,
 			);
 			name = "Custom Objects";
 			sourceTree = "<group>";
@@ -366,11 +356,9 @@
 			files = (
 				FA7476591BB5EB1C00C0CF18 /* CustomCollectionLayout.m in Sources */,
 				FA7475FE1BB4986E00C0CF18 /* ViewController.m in Sources */,
-				FA7476531BB509EF00C0CF18 /* CustomCellContentView.m in Sources */,
 				FA74764B1BB4FE0300C0CF18 /* GiftCard.m in Sources */,
 				FA7475FB1BB4986E00C0CF18 /* AppDelegate.m in Sources */,
 				FA7475F81BB4986E00C0CF18 /* main.m in Sources */,
-				FA74765C1BB5EC0800C0CF18 /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
