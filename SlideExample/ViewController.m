@@ -10,12 +10,14 @@
 #import "GiftCard.h"
 #import "CustomCollectionViewCell.h"
 #import "CardDetailView.h"
+#import "AppDelegate.h"
 #import <QuartzCore/CALayer.h>
 #import <QuartzCore/CAGradientLayer.h>
 #import <QuartzCore/CAShapeLayer.h>
 
 @interface ViewController ()
 @property (nonatomic, strong) NSMutableArray *giftCardArray;
+@property (nonatomic, strong) NSMutableDictionary *originalImages;
 @end
 
 @implementation ViewController
@@ -57,10 +59,12 @@
         GiftCard *sharedObj = [GiftCard sharedInstance];
         [sharedObj.cardArray addObjectsFromArray:self.giftCardArray];
         
-        
+        self.originalImages = [[NSMutableDictionary alloc] init];
         //Adjust images
         for (GiftCard *gc in self.giftCardArray) {
-
+            //Store unaltered images locally
+            [self.originalImages setObject:gc.cardImage forKey:gc.name];
+            
             UIGraphicsBeginImageContextWithOptions(gc.cardImage.size, NO, gc.cardImage.scale);
             CGRect rect = CGRectMake(0, 0, gc.cardImage.size.width, gc.cardImage.size.height);
             [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:gc.cardImage.size.width/32] addClip];
@@ -93,22 +97,10 @@
     CustomCollectionViewCell *cell = (CustomCollectionViewCell *)[cv dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
     [cell setClearsContextBeforeDrawing:NO];
     
-//    static BOOL nibMyCellloaded = NO;
-//    
-//    if(!nibMyCellloaded)
-//    {
-//        UINib *nib = [UINib nibWithNibName:@"CustomCollectionCell" bundle: nil];
-//        [cv registerNib:nib forCellWithReuseIdentifier:@"customCell"];
-//        nibMyCellloaded = YES;
-//    }
-//    CustomCollectionViewCell *cell = (CustomCollectionViewCell*)[cv dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
-    
     GiftCard *card = [self.giftCardArray objectAtIndex:indexPath.row];
-    
-//    cell.imgView.opaque = YES;
+
     cell.imgView.image = card.cardImage;
 
-    cell.contentView.opaque = YES;
     cell.contentView.layer.shouldRasterize = YES;
     
     cell.layer.opaque = YES;
@@ -127,15 +119,31 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCell *cell =[collectionView cellForItemAtIndexPath:indexPath];
+    GiftCard *sharedObj = [GiftCard sharedInstance];
+    GiftCard *giftCard = [sharedObj.cardArray objectAtIndex:indexPath.row];
+    
     NSLog(@"INDEX ==> %ld", (long)indexPath.row);
+
+    //Frame of selected cell
+    UICollectionViewLayoutAttributes *attributes = [collectionView layoutAttributesForItemAtIndexPath:indexPath];
+    CGRect cellRect = attributes.frame;
+    CGRect cellFrameInSuperview = [collectionView convertRect:cellRect toView:[collectionView superview]];
     
     //Create view with card detail info
-    //initial frame of selected cell
+    //in the initial frame of selected cell
     CardDetailView *cardDetailView = [[[NSBundle mainBundle] loadNibNamed:@"CardDetailView" owner:self options:nil] objectAtIndex:0];
-    [cardDetailView setFrame:cell.frame];
+    [cardDetailView setFrame:cellFrameInSuperview];
+    [cardDetailView setYPos:cellFrameInSuperview.origin.y];
+    [cardDetailView setW:cellFrameInSuperview.size.width];
+    [cardDetailView setH:cellFrameInSuperview.size.height];
+    
+    [cardDetailView.cardImage setImage:[self.originalImages objectForKey:giftCard.name]];
+    [cardDetailView.nameLbl setText:[NSString stringWithFormat:@"%@ Gift Card", giftCard.name]];
+    [cardDetailView.numberLbl setText:[NSString stringWithFormat:@"**** %@", giftCard.number]];
+    [cardDetailView.balanceLbl setText:[NSString stringWithFormat:@"$%@", giftCard.currentBalance]];
+    
     
     //Add as subview on the application window
     UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
@@ -150,7 +158,11 @@
     };
     
     // Animate
-    [UIView transitionWithView:cardDetailView duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:nil];
+    [UIView transitionWithView:cardDetailView duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:^ (BOOL finished) {
+        if (finished) {
+            self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        }
+    }];
 }
 
 - (UIEdgeInsets)collectionView:

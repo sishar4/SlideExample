@@ -34,6 +34,7 @@
 		FACDC3B81BB723DF00AD3ACF /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3B71BB723DF00AD3ACF /* CustomCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		FACDC3C31BB7732400AD3ACF /* CardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C21BB7732400AD3ACF /* CardDetailView.xib */; settings = {ASSET_TAGS = (); }; };
 		FACDC3C61BB7737600AD3ACF /* CardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3C51BB7737600AD3ACF /* CardDetailView.m */; settings = {ASSET_TAGS = (); }; };
+		FACDC3CA1BB7992400AD3ACF /* down-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C91BB7992400AD3ACF /* down-icon.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		FACDC3C21BB7732400AD3ACF /* CardDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardDetailView.xib; sourceTree = "<group>"; };
 		FACDC3C41BB7737600AD3ACF /* CardDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailView.h; sourceTree = "<group>"; };
 		FACDC3C51BB7737600AD3ACF /* CardDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailView.m; sourceTree = "<group>"; };
+		FACDC3C91BB7992400AD3ACF /* down-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 		FA7476291BB4B9F400C0CF18 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FACDC3C91BB7992400AD3ACF /* down-icon.png */,
 				FA74762A1BB4BA1800C0CF18 /* bk.png */,
 				FA74762B1BB4BA1800C0CF18 /* bloomies.png */,
 				FA74762C1BB4BA1800C0CF18 /* homedepot.png */,
@@ -344,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACDC3CA1BB7992400AD3ACF /* down-icon.png in Resources */,
 				FA74763F1BB4BA1800C0CF18 /* tj.png in Resources */,
 				FA74763E1BB4BA1800C0CF18 /* tcs.png in Resources */,
 				FA7476391BB4BA1800C0CF18 /* macys.png in Resources */,

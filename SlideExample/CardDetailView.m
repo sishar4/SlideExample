@@ -16,7 +16,7 @@
     void (^animateChangeHeight)() = ^()
     {
         //Set new frame for the view
-        CGRect frame = CGRectMake(0, 300, 375, 237);
+        CGRect frame = CGRectMake(0, self.yPos, self.w, self.h);
         CGRect newFrame = frame;
         newFrame.size = frame.size;
         [self setFrame:newFrame];
