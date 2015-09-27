@@ -45,8 +45,7 @@
     //Set as observer of Notification that lets it know
     //when card detail view has been dismissed
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"ViewDismissedNotification" object:nil];
-    
-    [_collectionView setClearsContextBeforeDrawing:NO];
+
     [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"customCell"];
     
     
@@ -115,8 +114,7 @@
     cell.imgView.image = card.cardImage;
 
     cell.contentView.layer.shouldRasterize = YES;
-    
-    cell.layer.opaque = YES;
+    [cell.layer setOpaque:YES];
     cell.layer.shouldRasterize = YES;
     
     //Add light drop shadow on cell
@@ -127,7 +125,7 @@
     cell.layer.masksToBounds = NO;
     cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
 
-    cell.opaque = YES;
+    [cell setOpaque:YES];
     
     return cell;
 }
@@ -152,7 +150,12 @@
     [cardDetailView setW:cellFrameInSuperview.size.width];
     [cardDetailView setH:cellFrameInSuperview.size.height];
     
+    //Re-size image to keep retina quality for different screen sizes
+    float multiplier = [[UIScreen mainScreen] bounds].size.width/375.0;
+    float resizedHeight = ceilf(multiplier * 237.0);
     [cardDetailView.cardImage setImage:[self.originalImages objectForKey:giftCard.name]];
+    [cardDetailView.imageHeightConstraint setConstant:resizedHeight];
+    
     [cardDetailView.nameLbl setText:[NSString stringWithFormat:@"%@ Gift Card", giftCard.name]];
     [cardDetailView.numberLbl setText:[NSString stringWithFormat:@"**** %@", giftCard.number]];
     [cardDetailView.balanceLbl setText:[NSString stringWithFormat:@"$%@", giftCard.currentBalance]];

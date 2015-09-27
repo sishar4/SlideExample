@@ -16,7 +16,11 @@
     if (self) {
         
         [self.contentView setOpaque:YES];
-        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0, 237.0)];
+        
+        float multiplier = self.contentView.bounds.size.width/375.0;
+        float resizedHeight = ceilf(multiplier * 237.0);
+        
+        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.bounds.size.width, resizedHeight)];
         [_imgView setOpaque:YES];
         [_imgView setClipsToBounds:NO];
         

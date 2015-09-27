@@ -10,6 +10,4 @@
 
 @interface CustomCollectionLayout : UICollectionViewFlowLayout
 
-#define ITEM_SIZE CGSizeMake(375,120)
-
 @end

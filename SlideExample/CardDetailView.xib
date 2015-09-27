@@ -13,8 +13,14 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-aF-qtc">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="237"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="237" id="m1D-hG-rj1"/>
                         <constraint firstAttribute="height" constant="237" id="oGW-ho-WMm"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="oGW-ho-WMm"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMN-ZR-QZ4">
                     <rect key="frame" x="16" y="16" width="568" height="30"/>
@@ -172,6 +178,7 @@
                 <outlet property="balanceLbl" destination="cag-lA-Bqm" id="lvT-Qf-ajc"/>
                 <outlet property="cardImage" destination="nYk-aF-qtc" id="K0i-aB-ew7"/>
                 <outlet property="dismissButton" destination="mMN-ZR-QZ4" id="ZJo-OL-VJL"/>
+                <outlet property="imageHeightConstraint" destination="m1D-hG-rj1" id="QEv-ix-tKT"/>
                 <outlet property="nameLbl" destination="kUx-Y8-4bP" id="aK4-t4-hmc"/>
                 <outlet property="numberLbl" destination="jjM-XG-ODY" id="ruz-kX-b2E"/>
             </connections>

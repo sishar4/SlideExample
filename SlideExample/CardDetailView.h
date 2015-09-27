@@ -20,6 +20,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *numberLbl;
 @property (nonatomic, weak) IBOutlet UILabel *balanceLbl;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *imageHeightConstraint;
+
 - (IBAction)dismissButtonTapped:(id)sender;
 
 @end
