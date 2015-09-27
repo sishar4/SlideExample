@@ -15,6 +15,9 @@
 {
     void (^animateChangeHeight)() = ^()
     {
+        //Notify ViewController that this view is being dismissed
+        [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"ViewDismissedNotification" object:self] postingStyle:NSPostNow];
+        
         //Set new frame for the view
         CGRect frame = CGRectMake(0, self.yPos, self.w, self.h);
         CGRect newFrame = frame;
