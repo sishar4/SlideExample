@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GiftCard.h"
 #import "CustomCollectionViewCell.h"
+#import "CardDetailView.h"
 #import <QuartzCore/CALayer.h>
 #import <QuartzCore/CAGradientLayer.h>
 #import <QuartzCore/CAShapeLayer.h>
@@ -128,8 +129,28 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
     
-//    UICollectionViewCell *cell =[collectionView cellForItemAtIndexPath:indexPath];
+    UICollectionViewCell *cell =[collectionView cellForItemAtIndexPath:indexPath];
     NSLog(@"INDEX ==> %ld", (long)indexPath.row);
+    
+    //Create view with card detail info
+    //initial frame of selected cell
+    CardDetailView *cardDetailView = [[[NSBundle mainBundle] loadNibNamed:@"CardDetailView" owner:self options:nil] objectAtIndex:0];
+    [cardDetailView setFrame:cell.frame];
+    
+    //Add as subview on the application window
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    [currentWindow addSubview:cardDetailView];
+    
+    void (^animateChangeHeight)() = ^()
+    {
+        //Set new frame for the view
+        CGRect newFrame = currentWindow.frame;
+        newFrame.size = currentWindow.frame.size;
+        [cardDetailView setFrame:newFrame];
+    };
+    
+    // Animate
+    [UIView transitionWithView:cardDetailView duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:nil];
 }
 
 - (UIEdgeInsets)collectionView:

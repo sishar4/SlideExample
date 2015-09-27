@@ -32,6 +32,8 @@
 		FA803A311BB64CED00B3BB86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA803A301BB64CED00B3BB86 /* UIKit.framework */; };
 		FA803A331BB64CF400B3BB86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA803A321BB64CF400B3BB86 /* Foundation.framework */; };
 		FACDC3B81BB723DF00AD3ACF /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3B71BB723DF00AD3ACF /* CustomCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		FACDC3C31BB7732400AD3ACF /* CardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C21BB7732400AD3ACF /* CardDetailView.xib */; settings = {ASSET_TAGS = (); }; };
+		FACDC3C61BB7737600AD3ACF /* CardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3C51BB7737600AD3ACF /* CardDetailView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,9 @@
 		FA803A321BB64CF400B3BB86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FACDC3B61BB723DF00AD3ACF /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		FACDC3B71BB723DF00AD3ACF /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		FACDC3C21BB7732400AD3ACF /* CardDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardDetailView.xib; sourceTree = "<group>"; };
+		FACDC3C41BB7737600AD3ACF /* CardDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailView.h; sourceTree = "<group>"; };
+		FACDC3C51BB7737600AD3ACF /* CardDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +155,8 @@
 				FACDC3B91BB726EB00AD3ACF /* Views */,
 				FA7475FC1BB4986E00C0CF18 /* ViewController.h */,
 				FA7475FD1BB4986E00C0CF18 /* ViewController.m */,
+				FACDC3C41BB7737600AD3ACF /* CardDetailView.h */,
+				FACDC3C51BB7737600AD3ACF /* CardDetailView.m */,
 				FA74764D1BB5091500C0CF18 /* Custom Objects */,
 				FA7476291BB4B9F400C0CF18 /* Resources */,
 				FA7476021BB4986E00C0CF18 /* Assets.xcassets */,
@@ -229,6 +236,7 @@
 		FACDC3B91BB726EB00AD3ACF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FACDC3C21BB7732400AD3ACF /* CardDetailView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 				FA7476361BB4BA1800C0CF18 /* bk.png in Resources */,
 				FA74763D1BB4BA1800C0CF18 /* subway.png in Resources */,
 				FA74763C1BB4BA1800C0CF18 /* starbucks.png in Resources */,
+				FACDC3C31BB7732400AD3ACF /* CardDetailView.xib in Resources */,
 				FA7476011BB4986E00C0CF18 /* Main.storyboard in Resources */,
 				FA7476371BB4BA1800C0CF18 /* bloomies.png in Resources */,
 				FA7476411BB4BA1800C0CF18 /* wholefoods.png in Resources */,
@@ -381,6 +390,7 @@
 				FACDC3B81BB723DF00AD3ACF /* CustomCollectionViewCell.m in Sources */,
 				FA7475FB1BB4986E00C0CF18 /* AppDelegate.m in Sources */,
 				FA7475F81BB4986E00C0CF18 /* main.m in Sources */,
+				FACDC3C61BB7737600AD3ACF /* CardDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
