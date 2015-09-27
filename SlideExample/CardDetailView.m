@@ -26,7 +26,7 @@
     };
     
     // Animate
-    [UIView transitionWithView:self duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:^ (BOOL finished){
+    [UIView transitionWithView:self duration:0.20f options: UIViewAnimationOptionCurveEaseOut animations:animateChangeHeight completion:^ (BOOL finished){
         if (finished) {
             [self removeFromSuperview];
         }

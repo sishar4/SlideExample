@@ -50,7 +50,7 @@
     
     
     //Retrieve User's gift cards in bg thread
-    //then update table view
+    //then update collection view
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         GiftCard *card1 = [[GiftCard alloc] initWithName:@"Burger King" number:@"1234" currentBalance:@"0.00" cardImage:[UIImage imageNamed:@"bk.png"]];
@@ -130,10 +130,9 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    GiftCard *sharedObj = [GiftCard sharedInstance];
-    GiftCard *giftCard = [sharedObj.cardArray objectAtIndex:indexPath.row];
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GiftCard *giftCard = [self.giftCardArray objectAtIndex:indexPath.row];
     
     NSLog(@"INDEX ==> %ld", (long)indexPath.row);
 
