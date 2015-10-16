@@ -162,11 +162,7 @@
     };
     
     // Animate
-    [UIView transitionWithView:cardDetailView duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:^ (BOOL finished) {
-        if (finished) {
-            self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-        }
-    }];
+    [UIView transitionWithView:cardDetailView duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:nil];
 }
 
 - (UIEdgeInsets)collectionView:
