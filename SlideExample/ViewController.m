@@ -17,7 +17,6 @@
 
 @interface ViewController ()
 @property (nonatomic, strong) NSMutableArray *giftCardArray;
-@property (nonatomic, strong) NSMutableDictionary *originalImages;
 @end
 
 @implementation ViewController
@@ -71,11 +70,11 @@
         GiftCard *sharedObj = [GiftCard sharedInstance];
         [sharedObj.cardArray addObjectsFromArray:self.giftCardArray];
         
-        self.originalImages = [[NSMutableDictionary alloc] init];
+        self.imageCache = [[NSCache alloc] init];
         //Adjust images
         for (GiftCard *gc in self.giftCardArray) {
-            //Store unaltered images locally
-            [self.originalImages setObject:gc.cardImage forKey:gc.name];
+            //Store unaltered images in local memory
+            [self.imageCache setObject:gc.cardImage forKey:gc.name];
             
             UIGraphicsBeginImageContextWithOptions(gc.cardImage.size, NO, gc.cardImage.scale);
             CGRect rect = CGRectMake(0, 0, gc.cardImage.size.width, gc.cardImage.size.height);
@@ -152,7 +151,10 @@
     //Re-size image to keep retina quality for different screen sizes
     float multiplier = [[UIScreen mainScreen] bounds].size.width/375.0;
     float resizedHeight = ceilf(multiplier * 237.0);
-    [cardDetailView.cardImage setImage:[self.originalImages objectForKey:giftCard.name]];
+    UIImage *imageFromCache = [self.imageCache objectForKey:giftCard.name];
+    if (imageFromCache) {
+        [cardDetailView.cardImage setImage:[self.imageCache objectForKey:giftCard.name]];
+    }
     [cardDetailView.imageHeightConstraint setConstant:resizedHeight];
     
     [cardDetailView.nameLbl setText:[NSString stringWithFormat:@"%@ Gift Card", giftCard.name]];
@@ -188,6 +190,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    self.imageCache = nil;
 }
 
 @end
