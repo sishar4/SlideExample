@@ -21,15 +21,6 @@
 
 @implementation ViewController
 
-- (void) receiveNotification:(NSNotification *) notification
-{
-    //Receive Notification that card detail view has been dismissed
-    //and it can set the navigation bar style back to default
-    if ([[notification name] isEqualToString:@"ViewDismissedNotification"])
-        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -40,10 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    //Set as observer of Notification that lets it know
-    //when card detail view has been dismissed
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"ViewDismissedNotification" object:nil];
 
     [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"customCell"];
     
