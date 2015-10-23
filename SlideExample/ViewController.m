@@ -37,6 +37,7 @@
     
     //Retrieve User's gift cards in bg thread
     //then update collection view
+    //For this example, the images were already given in Resources folder
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         GiftCard *card1 = [[GiftCard alloc] initWithName:@"Burger King" number:@"1234" currentBalance:@"0.00" cardImage:[UIImage imageNamed:@"bk.png"]];
