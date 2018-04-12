@@ -14,13 +14,16 @@
 - (IBAction)dismissButtonTapped:(id)sender
 {
     void (^animateChangeHeight)() = ^()
-    {        
+    {
         //Set new frame for the view
         CGRect frame = CGRectMake(0, self.yPos, self.w, self.h);
         CGRect newFrame = frame;
         newFrame.size = frame.size;
         [self setFrame:newFrame];
     };
+    
+    [self.dismissButton removeFromSuperview];
+    [self.containerView removeFromSuperview];
     
     // Animate
     [UIView transitionWithView:self duration:0.20f options: UIViewAnimationOptionCurveEaseOut animations:animateChangeHeight completion:^ (BOOL finished){

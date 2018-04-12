@@ -16,6 +16,7 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *dismissButton;
 @property (nonatomic, weak) IBOutlet UIImageView *cardImage;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLbl;
 @property (nonatomic, weak) IBOutlet UILabel *numberLbl;
 @property (nonatomic, weak) IBOutlet UILabel *balanceLbl;

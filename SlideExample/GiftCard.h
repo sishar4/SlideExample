@@ -13,11 +13,11 @@
 
 +(id)sharedInstance;
 
-@property (nonatomic, retain) NSMutableArray *cardArray;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *number;
-@property (nonatomic, retain) NSString *currentBalance;
-@property (nonatomic, retain) UIImage *cardImage;
+@property (nonatomic, strong) NSMutableArray *cardArray;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *number;
+@property (nonatomic, strong) NSString *currentBalance;
+@property (nonatomic, strong) UIImage *cardImage;
 
 - (id)initWithName:(NSString *)aName number:(NSString *)aNumber currentBalance:(NSString *)aCurrentBalance cardImage:(UIImage *)aCardImage;
 

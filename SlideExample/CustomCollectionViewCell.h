@@ -10,7 +10,7 @@
 
 @interface CustomCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, retain) UIImageView *imgView;
+@property (nonatomic, strong) UIImageView *imgView;
 
 
 @end
