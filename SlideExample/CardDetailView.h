@@ -25,4 +25,7 @@
 
 - (IBAction)dismissButtonTapped:(id)sender;
 
+- (void)hideDetailView;
+- (void)showDetailView;
+
 @end

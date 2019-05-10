@@ -65,7 +65,7 @@
             [self.imageCache setObject:gc.cardImage forKey:gc.name];
             
             UIGraphicsBeginImageContextWithOptions(gc.cardImage.size, NO, gc.cardImage.scale);
-            CGRect rect = CGRectMake(0, 0, gc.cardImage.size.width, gc.cardImage.size.height);
+            CGRect rect = CGRectMake(16, 0, gc.cardImage.size.width - 32, gc.cardImage.size.height);
             [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:gc.cardImage.size.width/32] addClip];
             [gc.cardImage drawInRect:rect];
             UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -107,7 +107,7 @@
     //Add light drop shadow on cell
     cell.layer.shadowColor = [[UIColor blackColor] CGColor];
     cell.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-    cell.layer.shadowRadius = 5.0f;
+    cell.layer.shadowRadius = 8.0f;
     cell.layer.shadowOpacity = 1.0f;
     cell.layer.masksToBounds = NO;
     cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
@@ -120,19 +120,18 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GiftCard *giftCard = [self.giftCardArray objectAtIndex:indexPath.row];
-    
-    NSLog(@"INDEX ==> %ld", (long)indexPath.row);
 
     //Frame of selected cell
     UICollectionViewLayoutAttributes *attributes = [collectionView layoutAttributesForItemAtIndexPath:indexPath];
     CGRect cellRect = attributes.frame;
     CGRect cellFrameInSuperview = [collectionView convertRect:cellRect toView:[collectionView superview]];
+    cellFrameInSuperview.origin.y = cellFrameInSuperview.origin.y - 72;
     
     //Create view with card detail info
     //in the initial frame of selected cell
     CardDetailView *cardDetailView = [[[NSBundle mainBundle] loadNibNamed:@"CardDetailView" owner:self options:nil] objectAtIndex:0];
     [cardDetailView setFrame:cellFrameInSuperview];
-    [cardDetailView setYPos:cellFrameInSuperview.origin.y];
+    [cardDetailView setYPos:cellFrameInSuperview.origin.y - 72.0];
     [cardDetailView setW:cellFrameInSuperview.size.width];
     [cardDetailView setH:cellFrameInSuperview.size.height];
     
@@ -149,21 +148,25 @@
     [cardDetailView.numberLbl setText:[NSString stringWithFormat:@"**** %@", giftCard.number]];
     [cardDetailView.balanceLbl setText:[NSString stringWithFormat:@"$%@", giftCard.currentBalance]];
     
-    
-    //Add as subview on the application window
-    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
-    [currentWindow addSubview:cardDetailView];
+    // Add as subview
+    [cardDetailView setBackgroundColor:[UIColor clearColor]];
+    [cardDetailView hideDetailView];
+    [self.view addSubview:cardDetailView];
     
     void (^animateChangeHeight)() = ^()
     {
         //Set new frame for the view
-        CGRect newFrame = currentWindow.frame;
-        newFrame.size = currentWindow.frame.size;
+        CGRect newFrame = self.view.frame;
         [cardDetailView setFrame:newFrame];
+        [cardDetailView showDetailView];
     };
     
     // Animate
-    [UIView transitionWithView:cardDetailView duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:nil];
+    [UIView transitionWithView:cardDetailView duration:0.20f options: UIViewAnimationOptionCurveEaseIn animations:animateChangeHeight completion:^ (BOOL finished) {
+        if (finished) {
+            [cardDetailView setBackgroundColor:[UIColor whiteColor]];
+        }
+    }];
 }
 
 - (UIEdgeInsets)collectionView:

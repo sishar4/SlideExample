@@ -32,7 +32,7 @@
 
 -(void)commonInit
 {
-    self.itemSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 120.0);
+    self.itemSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 100.0);
     self.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.minimumInteritemSpacing = 0;
 }

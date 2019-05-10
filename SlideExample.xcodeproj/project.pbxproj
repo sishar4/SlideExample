@@ -15,26 +15,26 @@
 		FA7476061BB4986E00C0CF18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7476041BB4986E00C0CF18 /* LaunchScreen.storyboard */; };
 		FA7476111BB4986E00C0CF18 /* SlideExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476101BB4986E00C0CF18 /* SlideExampleTests.m */; };
 		FA74761C1BB4986E00C0CF18 /* SlideExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74761B1BB4986E00C0CF18 /* SlideExampleUITests.m */; };
-		FA7476361BB4BA1800C0CF18 /* bk.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762A1BB4BA1800C0CF18 /* bk.png */; settings = {ASSET_TAGS = (); }; };
-		FA7476371BB4BA1800C0CF18 /* bloomies.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762B1BB4BA1800C0CF18 /* bloomies.png */; settings = {ASSET_TAGS = (); }; };
-		FA7476381BB4BA1800C0CF18 /* homedepot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762C1BB4BA1800C0CF18 /* homedepot.png */; settings = {ASSET_TAGS = (); }; };
-		FA7476391BB4BA1800C0CF18 /* macys.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762D1BB4BA1800C0CF18 /* macys.png */; settings = {ASSET_TAGS = (); }; };
-		FA74763A1BB4BA1800C0CF18 /* nike.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762E1BB4BA1800C0CF18 /* nike.png */; settings = {ASSET_TAGS = (); }; };
-		FA74763B1BB4BA1800C0CF18 /* oldnavy.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762F1BB4BA1800C0CF18 /* oldnavy.png */; settings = {ASSET_TAGS = (); }; };
-		FA74763C1BB4BA1800C0CF18 /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476301BB4BA1800C0CF18 /* starbucks.png */; settings = {ASSET_TAGS = (); }; };
-		FA74763D1BB4BA1800C0CF18 /* subway.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476311BB4BA1800C0CF18 /* subway.png */; settings = {ASSET_TAGS = (); }; };
-		FA74763E1BB4BA1800C0CF18 /* tcs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476321BB4BA1800C0CF18 /* tcs.png */; settings = {ASSET_TAGS = (); }; };
-		FA74763F1BB4BA1800C0CF18 /* tj.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476331BB4BA1800C0CF18 /* tj.png */; settings = {ASSET_TAGS = (); }; };
-		FA7476401BB4BA1800C0CF18 /* walmart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476341BB4BA1800C0CF18 /* walmart.png */; settings = {ASSET_TAGS = (); }; };
-		FA7476411BB4BA1800C0CF18 /* wholefoods.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476351BB4BA1800C0CF18 /* wholefoods.png */; settings = {ASSET_TAGS = (); }; };
-		FA74764B1BB4FE0300C0CF18 /* GiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74764A1BB4FE0300C0CF18 /* GiftCard.m */; settings = {ASSET_TAGS = (); }; };
-		FA7476591BB5EB1C00C0CF18 /* CustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476581BB5EB1C00C0CF18 /* CustomCollectionLayout.m */; settings = {ASSET_TAGS = (); }; };
+		FA7476361BB4BA1800C0CF18 /* bk.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762A1BB4BA1800C0CF18 /* bk.png */; };
+		FA7476371BB4BA1800C0CF18 /* bloomies.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762B1BB4BA1800C0CF18 /* bloomies.png */; };
+		FA7476381BB4BA1800C0CF18 /* homedepot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762C1BB4BA1800C0CF18 /* homedepot.png */; };
+		FA7476391BB4BA1800C0CF18 /* macys.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762D1BB4BA1800C0CF18 /* macys.png */; };
+		FA74763A1BB4BA1800C0CF18 /* nike.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762E1BB4BA1800C0CF18 /* nike.png */; };
+		FA74763B1BB4BA1800C0CF18 /* oldnavy.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74762F1BB4BA1800C0CF18 /* oldnavy.png */; };
+		FA74763C1BB4BA1800C0CF18 /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476301BB4BA1800C0CF18 /* starbucks.png */; };
+		FA74763D1BB4BA1800C0CF18 /* subway.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476311BB4BA1800C0CF18 /* subway.png */; };
+		FA74763E1BB4BA1800C0CF18 /* tcs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476321BB4BA1800C0CF18 /* tcs.png */; };
+		FA74763F1BB4BA1800C0CF18 /* tj.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476331BB4BA1800C0CF18 /* tj.png */; };
+		FA7476401BB4BA1800C0CF18 /* walmart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476341BB4BA1800C0CF18 /* walmart.png */; };
+		FA7476411BB4BA1800C0CF18 /* wholefoods.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7476351BB4BA1800C0CF18 /* wholefoods.png */; };
+		FA74764B1BB4FE0300C0CF18 /* GiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74764A1BB4FE0300C0CF18 /* GiftCard.m */; };
+		FA7476591BB5EB1C00C0CF18 /* CustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7476581BB5EB1C00C0CF18 /* CustomCollectionLayout.m */; };
 		FA803A311BB64CED00B3BB86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA803A301BB64CED00B3BB86 /* UIKit.framework */; };
 		FA803A331BB64CF400B3BB86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA803A321BB64CF400B3BB86 /* Foundation.framework */; };
-		FACDC3B81BB723DF00AD3ACF /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3B71BB723DF00AD3ACF /* CustomCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		FACDC3C31BB7732400AD3ACF /* CardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C21BB7732400AD3ACF /* CardDetailView.xib */; settings = {ASSET_TAGS = (); }; };
-		FACDC3C61BB7737600AD3ACF /* CardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3C51BB7737600AD3ACF /* CardDetailView.m */; settings = {ASSET_TAGS = (); }; };
-		FACDC3CA1BB7992400AD3ACF /* down-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C91BB7992400AD3ACF /* down-icon.png */; settings = {ASSET_TAGS = (); }; };
+		FACDC3B81BB723DF00AD3ACF /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3B71BB723DF00AD3ACF /* CustomCollectionViewCell.m */; };
+		FACDC3C31BB7732400AD3ACF /* CardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C21BB7732400AD3ACF /* CardDetailView.xib */; };
+		FACDC3C61BB7737600AD3ACF /* CardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = FACDC3C51BB7737600AD3ACF /* CardDetailView.m */; };
+		FACDC3CA1BB7992400AD3ACF /* down-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FACDC3C91BB7992400AD3ACF /* down-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

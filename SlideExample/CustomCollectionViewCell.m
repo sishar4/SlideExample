@@ -22,7 +22,7 @@
         
         _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.bounds.size.width, resizedHeight)];
         [_imgView setOpaque:YES];
-        [_imgView setClipsToBounds:NO];
+        [_imgView setClipsToBounds:YES];
         
         [self.contentView addSubview:_imgView];
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="96N-Yw-lf0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="96N-Yw-lf0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,8 +37,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0KF-Fc-7AN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0KF-Fc-7AN">
+                                <rect key="frame" x="8" y="64" width="359" height="603"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="nib-lZ-MTa" customClass="CustomCollectionLayout"/>
                                 <cells>
@@ -57,16 +57,16 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" constant="20" id="0Xj-87-qWV"/>
                             <constraint firstItem="hjM-Jd-I5G" firstAttribute="top" secondItem="0KF-Fc-7AN" secondAttribute="bottom" id="Kac-TV-nlJ"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" id="LJW-yf-3YP"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" constant="8" id="YWb-VK-Qty"/>
-                            <constraint firstAttribute="trailing" secondItem="0KF-Fc-7AN" secondAttribute="trailing" id="c73-Sb-w9Q"/>
+                            <constraint firstAttribute="trailing" secondItem="0KF-Fc-7AN" secondAttribute="trailing" constant="8" id="c73-Sb-w9Q"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" id="l6r-au-jx2"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" id="mIZ-rC-6bp"/>
-                            <constraint firstItem="0KF-Fc-7AN" firstAttribute="leading" secondItem="Kr9-J2-rXA" secondAttribute="leading" id="r2s-wB-5r8"/>
+                            <constraint firstItem="0KF-Fc-7AN" firstAttribute="leading" secondItem="Kr9-J2-rXA" secondAttribute="leading" constant="8" id="r2s-wB-5r8"/>
                             <constraint firstItem="0KF-Fc-7AN" firstAttribute="top" secondItem="8oQ-bG-2eE" secondAttribute="bottom" id="xfF-Rh-0uy"/>
                         </constraints>
                         <variation key="default">
