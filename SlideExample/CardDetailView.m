@@ -25,13 +25,14 @@
     UIGraphicsEndImageContext();
     self.cardImage.image = roundedImage;
     
-    //Add light drop shadow on cell
+    // Add light drop shadow behind image
     self.cardImage.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.cardImage.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-    self.cardImage.layer.shadowRadius = 8.0f;
+    self.cardImage.layer.shadowRadius = 1.0f;
     self.cardImage.layer.shadowOpacity = 1.0f;
     self.cardImage.layer.masksToBounds = NO;
-    self.cardImage.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.cardImage.bounds cornerRadius:self.cardImage.layer.cornerRadius].CGPath;
+    CGRect shadowRect = CGRectMake(0, 0, self.bounds.size.width - 16.0, self.cardImage.bounds.size.height);
+    self.cardImage.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:shadowRect cornerRadius:self.bounds.size.width/16].CGPath;
     
     [self.cardImage setOpaque:YES];
 }
@@ -43,7 +44,7 @@
         //Set new frame for the view
         CGRect frame = CGRectMake(0, self.yPos + 72.0, self.w, self.h);
         [self setFrame:frame];
-        self.cardImage.alpha = 0.25;
+        self.cardImage.alpha = 0;
     };
     
     [self setBackgroundColor:[UIColor clearColor]];
@@ -52,17 +53,18 @@
     // Animate
     [UIView transitionWithView:self duration:0.20f options: UIViewAnimationOptionCurveEaseOut animations:animateChangeHeight completion:^ (BOOL finished) {
         if (finished) {
-            self.cardImage.alpha = 0;
             [self removeFromSuperview];
         }
     }];
 }
 
 - (void)showDetailView {
+    self.cardImage.alpha = 1;
     self.containerView.alpha = 1;
 }
 
 - (void)hideDetailView {
+    self.cardImage.alpha = 0;
     self.containerView.alpha = 0;
 }
 

@@ -62,14 +62,21 @@
     for (UICollectionViewLayoutAttributes *originalAttribute in originalAttributes) {
         [attributesArray addObject:[originalAttribute copy]];
     }
+   
+    [attributesArray addObject:[self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]]];
     
     for (UICollectionViewLayoutAttributes *attributes in attributesArray) {
         CGFloat xPosition = attributes.center.x;
-        CGFloat yPosition = attributes.center.y;
-
-        attributes.zIndex = numberOfItems + attributes.indexPath.row; //All cells appear tucked underneath the one above
-
-        attributes.center = CGPointMake(xPosition, yPosition);
+        CGFloat yPosition = attributes.center.y + 50.0;
+        
+        if ([attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+            attributes.zIndex = 1024;
+            CGFloat yPosition = attributes.center.y;
+            attributes.center = CGPointMake(xPosition, yPosition);
+        } else {
+            attributes.zIndex = numberOfItems + attributes.indexPath.row; //All cells appear tucked underneath the one above
+            attributes.center = CGPointMake(xPosition, yPosition);
+        }
     }
     
     return attributesArray;
@@ -82,5 +89,15 @@
     return attributes;
 }
 
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:elementKind withIndexPath:indexPath];
+    attributes.frame = CGRectMake(0, 0, self.collectionView.bounds.size.width, 50.0);
+    return attributes;
+}
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return YES;
+}
 
 @end

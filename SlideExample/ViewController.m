@@ -33,7 +33,9 @@
     // Do any additional setup after loading the view, typically from a nib.
 
     [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"customCell"];
-    
+    [self.collectionView registerClass:[UICollectionReusableView class]
+            forSupplementaryViewOfKind: UICollectionElementKindSectionHeader
+                   withReuseIdentifier:@"MCSRCiCollectionViewSupplementaryView"];
     
     //Retrieve User's gift cards in bg thread
     //then update collection view
@@ -125,7 +127,7 @@
     UICollectionViewLayoutAttributes *attributes = [collectionView layoutAttributesForItemAtIndexPath:indexPath];
     CGRect cellRect = attributes.frame;
     CGRect cellFrameInSuperview = [collectionView convertRect:cellRect toView:[collectionView superview]];
-    cellFrameInSuperview.origin.y = cellFrameInSuperview.origin.y - 72;
+    cellFrameInSuperview.origin.y = cellFrameInSuperview.origin.y - 72.0;
     
     //Create view with card detail info
     //in the initial frame of selected cell
@@ -169,9 +171,22 @@
     }];
 }
 
-- (UIEdgeInsets)collectionView:
-(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(20, 0, 0, 0);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *customView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                              withReuseIdentifier:@"MCSRCiCollectionViewSupplementaryView"
+                                                                                     forIndexPath:indexPath];
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        self.headerView.frame = customView.frame;
+        [customView addSubview:self.headerView];
+    }
+    
+    return customView;
 }
 
 - (void)didReceiveMemoryWarning {
