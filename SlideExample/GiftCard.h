@@ -11,8 +11,6 @@
 
 @interface GiftCard : NSObject
 
-+(id)sharedInstance;
-
 @property (nonatomic, strong) NSMutableArray *cardArray;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *number;

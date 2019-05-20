@@ -16,7 +16,10 @@
 #import <QuartzCore/CAShapeLayer.h>
 
 @interface ViewController ()
+
 @property (nonatomic, strong) NSMutableArray *giftCardArray;
+@property (nonatomic, strong) NSCache *imageCache;
+@property (nonatomic) BOOL didClickOnCardDetails;
 @end
 
 @implementation ViewController
@@ -28,6 +31,15 @@
     [_collectionView reloadData];
 }
 
+- (void)viewDidLayoutSubviews {
+    // Don't resize subviews when card details list is shown or hidden, only when view first loads
+    if (!self.didClickOnCardDetails) {
+        float multiplier = [[UIScreen mainScreen] bounds].size.width/375.0;
+        float resizedHeight = ceilf(multiplier * 223.0);
+        self.collectionViewHeightConstraint.constant = self.collectionView.contentSize.height + (resizedHeight - 100.0);  // Adds padding for size of card image minus size of the cell, to account for final card in list
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -36,6 +48,7 @@
     [self.collectionView registerClass:[UICollectionReusableView class]
             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader
                    withReuseIdentifier:@"MCSRCiCollectionViewSupplementaryView"];
+    self.imageCache = [[NSCache alloc] init];
     
     //Retrieve User's gift cards in bg thread
     //then update collection view
@@ -56,24 +69,6 @@
         GiftCard *card12 = [[GiftCard alloc] initWithName:@"Whole Foods" number:@"6798" currentBalance:@"8.00" cardImage:[UIImage imageNamed:@"wholefoods.png"]];
         
         self.giftCardArray = [[NSMutableArray alloc] initWithObjects:card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, nil];
-        
-        GiftCard *sharedObj = [GiftCard sharedInstance];
-        [sharedObj.cardArray addObjectsFromArray:self.giftCardArray];
-        
-        self.imageCache = [[NSCache alloc] init];
-        //Adjust images
-        for (GiftCard *gc in self.giftCardArray) {
-            //Store unaltered images in local memory
-            [self.imageCache setObject:gc.cardImage forKey:gc.name];
-            
-            UIGraphicsBeginImageContextWithOptions(gc.cardImage.size, NO, gc.cardImage.scale);
-            CGRect rect = CGRectMake(16, 0, gc.cardImage.size.width - 32, gc.cardImage.size.height);
-            [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:gc.cardImage.size.width/32] addClip];
-            [gc.cardImage drawInRect:rect];
-            UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            gc.cardImage = roundedImage;
-        }
 
         dispatch_async( dispatch_get_main_queue(), ^{
             [_collectionView reloadData];
@@ -93,34 +88,37 @@
     return 1;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CustomCollectionViewCell *cell = (CustomCollectionViewCell *)[cv dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+    CustomCollectionViewCell *cell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+    
     [cell setClearsContextBeforeDrawing:NO];
+    [cell.layer setOpaque:YES];
+    [cell setOpaque:YES];
+    cell.layer.shouldRasterize = YES;
+    cell.contentView.layer.shouldRasterize = YES;
     
     GiftCard *card = [self.giftCardArray objectAtIndex:indexPath.row];
 
-    cell.imgView.image = card.cardImage;
-
-    cell.contentView.layer.shouldRasterize = YES;
-    [cell.layer setOpaque:YES];
-    cell.layer.shouldRasterize = YES;
+    UIImage *cachedCardImage = [self.imageCache objectForKey:card.name];
     
-    //Add light drop shadow on cell
-    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
-    cell.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-    cell.layer.shadowRadius = 8.0f;
-    cell.layer.shadowOpacity = 1.0f;
-    cell.layer.masksToBounds = NO;
-    cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
-
-    [cell setOpaque:YES];
+    if (cachedCardImage != nil) {
+        // Use cached image if it exists
+        [cell configureWithCard:card andImage:cachedCardImage];
+    } else {
+        // Else, download the image first, here just fetching locally
+        UIImage *cardImage = card.cardImage;
+        [self.imageCache setObject:cardImage forKey:card.name];
+        
+        [cell configureWithCard:card andImage:cardImage];
+    }
     
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.didClickOnCardDetails = YES;
     GiftCard *giftCard = [self.giftCardArray objectAtIndex:indexPath.row];
 
     //Frame of selected cell
@@ -128,7 +126,7 @@
     CGRect cellRect = attributes.frame;
     CGRect cellFrameInSuperview = [collectionView convertRect:cellRect toView:[collectionView superview]];
     cellFrameInSuperview.origin.y = cellFrameInSuperview.origin.y - 72.0;
-    
+
     //Create view with card detail info
     //in the initial frame of selected cell
     CardDetailView *cardDetailView = [[[NSBundle mainBundle] loadNibNamed:@"CardDetailView" owner:self options:nil] objectAtIndex:0];
@@ -140,10 +138,7 @@
     //Re-size image to keep retina quality for different screen sizes
     float multiplier = [[UIScreen mainScreen] bounds].size.width/375.0;
     float resizedHeight = ceilf(multiplier * 237.0);
-    UIImage *imageFromCache = [self.imageCache objectForKey:giftCard.name];
-    if (imageFromCache) {
-        [cardDetailView.cardImage setImage:[self.imageCache objectForKey:giftCard.name]];
-    }
+    [cardDetailView.cardImage setImage:giftCard.cardImage];
     [cardDetailView.imageHeightConstraint setConstant:resizedHeight];
     
     [cardDetailView.nameLbl setText:[NSString stringWithFormat:@"%@ Gift Card", giftCard.name]];

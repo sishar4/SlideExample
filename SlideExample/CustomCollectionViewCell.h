@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GiftCard.h"
 
 @interface CustomCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIImageView *imgView;
-
-
+- (void)configureWithCard:(GiftCard *)card andImage:(UIImage *)cardImage;
 @end

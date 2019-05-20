@@ -10,18 +10,6 @@
 
 @implementation GiftCard
 
-+ (id)sharedInstance
-{
-    static GiftCard *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-        sharedInstance.cardArray = [[NSMutableArray alloc] init];
-    });
-    
-    return sharedInstance;
-}
-
 - (id)initWithName:(NSString *)aName number:(NSString *)aNumber currentBalance:(NSString *)aCurrentBalance cardImage:(UIImage *)aCardImage
 {
     if (self = [super init]) {

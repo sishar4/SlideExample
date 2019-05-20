@@ -67,16 +67,16 @@
     
     for (UICollectionViewLayoutAttributes *attributes in attributesArray) {
         CGFloat xPosition = attributes.center.x;
-        CGFloat yPosition = attributes.center.y + 50.0;
+        CGFloat yPosition = attributes.center.y;
         
         if ([attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader]) {
             attributes.zIndex = 1024;
-            CGFloat yPosition = attributes.center.y;
-            attributes.center = CGPointMake(xPosition, yPosition);
         } else {
+            yPosition = attributes.center.y + 50.0; // Add padding to top of all cells to account for the header
             attributes.zIndex = numberOfItems + attributes.indexPath.row; //All cells appear tucked underneath the one above
-            attributes.center = CGPointMake(xPosition, yPosition);
         }
+        
+        attributes.center = CGPointMake(xPosition, yPosition);
     }
     
     return attributesArray;

@@ -8,6 +8,11 @@
 
 #import "CustomCollectionViewCell.h"
 
+@interface CustomCollectionViewCell ()
+
+@property (nonatomic, strong) UIImageView *imgView;
+@end
+
 @implementation CustomCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -27,6 +32,26 @@
         [self.contentView addSubview:_imgView];
     }
     return self;
+}
+
+- (void)configureWithCard:(id)card andImage:(UIImage *)cardImage {
+    
+    // Add rounded corners to image
+    UIGraphicsBeginImageContextWithOptions(cardImage.size, NO, cardImage.scale);
+    CGRect rect = CGRectMake(16, 0, cardImage.size.width - 32, cardImage.size.height);
+    [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:cardImage.size.width/32] addClip];
+    [cardImage drawInRect:rect];
+    UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    _imgView.image = roundedImage;
+    
+    //Add light drop shadow on cell
+    self.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    self.layer.shadowRadius = 8.0f;
+    self.layer.shadowOpacity = 1.0f;
+    self.layer.masksToBounds = NO;
+    self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.contentView.layer.cornerRadius].CGPath;
 }
 
 @end

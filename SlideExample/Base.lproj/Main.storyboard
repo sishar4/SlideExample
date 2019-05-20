@@ -41,6 +41,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0KF-Fc-7AN">
                                 <rect key="frame" x="8" y="64" width="359" height="603"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="603" id="cSq-o4-e77"/>
+                                </constraints>
                                 <collectionViewLayout key="collectionViewLayout" id="T7E-1v-QIr" customClass="CustomCollectionLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellIdentifier" id="rnS-ZL-IN3">
@@ -83,6 +86,7 @@
                     <navigationItem key="navigationItem" title="My Cards" id="fLP-UF-vzt"/>
                     <connections>
                         <outlet property="collectionView" destination="0KF-Fc-7AN" id="VGn-If-k9S"/>
+                        <outlet property="collectionViewHeightConstraint" destination="cSq-o4-e77" id="i3E-pR-YM7"/>
                         <outlet property="headerView" destination="pY3-7L-kWE" id="1Xq-U0-btV"/>
                     </connections>
                 </viewController>
